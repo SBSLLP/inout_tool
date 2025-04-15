@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="icon-bar">
+        <a href="{% url 'password_change' %}" title="Change Password"><i class="fas fa-key"></i></a>
+        <a href="{% url 'logout' %}" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+
+    <h2>Welcome, {{ user.username }}!</h2>
+    <center>
+        <form method="post">
+            {% csrf_token %}
+            {% if attendance %}
+                <p>Checked In At: {{ attendance.check_in_time }}</p>
+                <button type="submit" name="check_out" value="1">Check Out</button>
+            {% else %}
+                <button type="submit" name="check_in" value="1">Check In</button>
+            {% endif %}
+        </form>
+    </center>
+   
+</div>
+</body>
+</html>

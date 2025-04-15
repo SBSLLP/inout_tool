@@ -1,0 +1,85 @@
+/* Center the login box */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url('../images/sbs0.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+}
+
+form {
+    background-color: #ffffff;
+    margin-top: 150px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Input styling */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #74ebd5;
+    outline: none;
+    box-shadow: 0 0 8px #74ebd5;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Button */
+button {
+    width: 100%;
+    background-color: #6a11cb;
+    background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-image: linear-gradient(315deg, #2575fc 0%, #6a11cb 74%);
+}
+
+/* Error message */
+p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
