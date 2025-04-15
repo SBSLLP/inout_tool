@@ -19,9 +19,9 @@
             {% csrf_token %}
             {% if attendance %}
                 <p>Checked In At: {{ attendance.check_in_time }}</p>
-                <button type="submit" name="check_out" value="1">Check Out</button>
+                <button type="submit" name="check_out" value="1">I AM Out</button>
             {% else %}
-                <button type="submit" name="check_in" value="1">Check In</button>
+                <button type="submit" name="check_in" value="1">I AM  In</button>
             {% endif %}
         </form>
     </center>
