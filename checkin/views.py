@@ -15,17 +15,16 @@ def dashboard(request):
 
     if request.method == "POST":
         if 'check_in' in request.POST:
-            # Only create a new check-in if not already checked in
             if not attendance:
                 Attendance.objects.create(user=request.user, check_in_time=timezone.now())
 
         elif 'check_out' in request.POST:
-            # Only check out if already checked in
+           
             if attendance:
                 attendance.check_out_time = timezone.now()
                 attendance.save()
 
-    # Set break time display (but no break functionality)
+    # Set break time display 
     break_time_display = "00:00"  # Default if no break has been taken
 
     return render(request, 'dashboard.html', {'attendance': attendance, 'break_time_display': break_time_display})
