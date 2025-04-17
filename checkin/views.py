@@ -11,18 +11,18 @@ def dashboard(request):
     user = request.user
     today = timezone.now().date()
 
-    # Check if the user has already checked in
+   
     try:
         attendance = Attendance.objects.get(user=request.user, check_out_time__isnull=True)
     except Attendance.DoesNotExist:
         attendance = None
 
-    # Handle check-in/check-out
+  
     if request.method == "POST":
         if 'check_in' in request.POST:
             if not attendance:
-                # If role is missing, set it to "Staff"
-                role = 'SBS_RESOURS'  # You can dynamically change this as per your requirement
+               
+                role = 'SBS_RESOURS'  
                 Attendance.objects.create(user=request.user, check_in_time=timezone.now(), role=role)
 
         elif 'check_out' in request.POST:
@@ -30,7 +30,7 @@ def dashboard(request):
                 attendance.check_out_time = timezone.now()
                 attendance.save()
 
-    # Fetch daily attendance records
+  
     daily_records = Attendance.objects.filter(user=user, date=today)
 
     return render(request, 'dashboard.html', {
