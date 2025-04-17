@@ -51,7 +51,7 @@ h2 {
     color: #007bff;
 }
 
-/* Buttons */
+
 button {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border: none;
@@ -68,14 +68,14 @@ button:hover {
     background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
-/* Text info */
+
 p {
     margin: 10px 0;
     color: #444;
     font-size: 16px;
 }
 
-/* Logout link */
+
 .logout-link {
     display: block;
     margin-top: 20px;
@@ -89,3 +89,63 @@ p {
 .logout-link:hover {
     color: #cc0000;
 }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+    
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f4f4f9;
+        color: #333;
+        font-size: 16px;
+    }
+
+    td {
+        background-color: #fff;
+        color: #555;
+        font-size: 14px;
+    }
+
+    /* Alternating row colors */
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    /* Hover effect for table rows */
+    tbody tr:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    /* Center the table heading */
+    h3 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 30px;
+    }
+
+    /* Styling for empty row */
+    td[colspan="7"] {
+        text-align: center;
+        font-style: italic;
+        color: #999;
+    }
+

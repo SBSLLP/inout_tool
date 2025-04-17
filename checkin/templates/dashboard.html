@@ -3,7 +3,7 @@
 <head>
     <title>Dashboard</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/dashboard1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard001.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -21,11 +21,41 @@
                 <p>Checked In At: {{ attendance.check_in_time }}</p>
                 <button type="submit" name="check_out" value="1">I AM Out</button>
             {% else %}
-                <button type="submit" name="check_in" value="1">I AM  In</button>
+                <button type="submit" name="check_in" value="1">I AM In</button>
             {% endif %}
         </form>
+
+        <h3 style="margin-top: 30px;">🗓️ Your Daily Attendance </h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-top: 10px;">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Date</th>
+                    <th>Login Time</th>
+                    <th>Logout Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in daily_records %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ record.user.first_name }} {{ record.user.last_name }}</td> <!-- Name -->
+                        <td>{{ record.role|default:"No Role Assigned" }}</td> <!-- Role -->
+                        <td>{{ record.date }}</td>
+                        <td>{{ record.check_in_time|time:"H:i:s" }}</td>
+                        <td>{{ record.check_out_time|default:"-"|time:"H:i:s" }}</td>
+                    </tr>
+                    
+                {% empty %}
+                    <tr>
+                        <td colspan="6">No attendance records found for today.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </center>
-   
 </div>
 </body>
 </html>
