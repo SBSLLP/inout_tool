@@ -42,7 +42,7 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ record.user.first_name }} {{ record.user.last_name }}</td> <!-- Name -->
-                        <td>{{ record.role|default:"No Role Assigned" }}</td> <!-- Role -->
+                        <td>{{ record.user.role|default:"No Role Assigned" }}</td> <!-- Role -->
                         <td>{{ record.date }}</td>
                         <td>{{ record.check_in_time|time:"H:i:s" }}</td>
                         <td>{{ record.check_out_time|default:"-"|time:"H:i:s" }}</td>
