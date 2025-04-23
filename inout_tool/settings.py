@@ -73,6 +73,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'inout_tool.wsgi.application'
 
 AUTH_USER_MODEL = 'checkin.CustomUser'
+AUTHENTICATION_BACKENDS = ['checkin.backends.EmailBackend']
+
 
 
 
