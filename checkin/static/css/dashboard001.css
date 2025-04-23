@@ -148,4 +148,39 @@ p {
         font-style: italic;
         color: #999;
     }
+   /* Ensure the navbar stays on top */
+   body {
+    padding-top: 56px; /* Add space for fixed navbar */
+}
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures navbar stays on top */
+}
+
+.container {
+    margin-top: 80px; /* Adds extra space below the navbar */
+}
+
+/* Style for the profile image in the navbar */
+.profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+/* Align the profile image at the right corner */
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 15px;
+}
