@@ -3,15 +3,29 @@ from .models import Attendance, CustomUser
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.admin.sites import site
 
+
 class CustomUserAdmin(UserAdmin):
-    
-    fieldsets = UserAdmin.fieldsets + (
-        ('Personal info', {'fields': ('role',)}),
+    model = CustomUser
+    list_display = ('email', 'first_name', 'last_name', 'role', 'is_staff', 'is_active')  # Add first_name and last_name here
+    list_filter = ('role', 'is_staff', 'is_active')
+    search_fields = ('email',)
+    ordering = ('email',)
+
+    fieldsets = (
+        (None, {'fields': ('email', 'password', 'first_name', 'last_name', 'role')}),  # Add first_name and last_name here
+        ('Permissions', {'fields': ('is_staff', 'is_superuser', 'is_active', 'groups', 'user_permissions')}),
     )
-    add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Personal info', {'fields': ('role',)}),
+
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'first_name', 'last_name', 'role', 'password1', 'password2', 'is_staff', 'is_superuser', 'is_active')}
+        ),
     )
-    list_display = UserAdmin.list_display + ('role',)
+
+
+    # VERY IMPORTANT: remove username field from UserAdmin behavior
+    add_form_template = None
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
@@ -19,7 +33,7 @@ admin.site.register(CustomUser, CustomUserAdmin)
 class AttendanceAdmin(admin.ModelAdmin):
     list_display = ('date','user', 'role', 'check_in_time', 'check_out_time')
     list_filter = ('role', 'date')
-    search_fields = ('user__username', 'role')
+    search_fields = ('user_email', 'role')
     ordering = ('-date',)
 
 

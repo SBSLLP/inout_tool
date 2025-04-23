@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from django.contrib.auth import logout
+
+from django.contrib.auth import logout,authenticate, login
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .models import Attendance
@@ -41,6 +42,21 @@ def dashboard(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def login_view(request):
+    if request.method =="post":
+        email=request.post['email']
+        password=request.post['password']
+        user=authenticate(request,username=email,password=password)
+        if user is not None:
+            login(request,user)
+            return redirect(dashboard.html)
+        else:
+            return render(request, 'login.html',{'error': 'Invalid email or password'})
+    return redirect (request,'login.html')
+        
+            
+
 
 @login_required
 def change_password(request):
