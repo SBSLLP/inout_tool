@@ -6,9 +6,11 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('', RedirectView.as_view(url=reverse_lazy('login'))),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', views.login_view, name='login_view'), 
      path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('password/', views.change_password, name='password_change'),
+    path('register/',views.register,name='register'),
    
     
 ]

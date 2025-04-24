@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.contrib.auth import logout,authenticate, login
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+
+from .form import CustomUserCreationForm
 from .models import Attendance
 
 @login_required
@@ -55,7 +57,18 @@ def login_view(request):
             return render(request, 'login.html',{'error': 'Invalid email or password'})
     return redirect (request,'login.html')
         
-            
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            messages.success(request, 'Registration successful! You can now log in.')
+            return redirect('login')  # Make sure you have a login URL
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'register.html', {'form': form})           
 
 
 @login_required
