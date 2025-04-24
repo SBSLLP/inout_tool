@@ -54,5 +54,6 @@ def change_password(request):
     else:
         form = PasswordChangeForm(user=request.user)
     return render(request, 'password.html', {'form': form})
+
 def home(request):
     return render(request, 'checkin/home.html')
