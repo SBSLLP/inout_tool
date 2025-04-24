@@ -5,6 +5,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .models import Attendance
+from django.shortcuts import render
 
 @login_required
 def dashboard(request):
@@ -53,3 +54,5 @@ def change_password(request):
     else:
         form = PasswordChangeForm(user=request.user)
     return render(request, 'password.html', {'form': form})
+def home(request):
+    return render(request, 'checkin/home.html')
