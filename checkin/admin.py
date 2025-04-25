@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Attendance, CustomUser
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.admin.sites import site
+from .models import Attendance, CustomUser
 
 
 class CustomUserAdmin(UserAdmin):

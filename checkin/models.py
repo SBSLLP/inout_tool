@@ -23,7 +23,9 @@ class CustomUserManager(BaseUserManager):
 
       
 class CustomUser(AbstractUser):
+    
     ROLE_CHOICES = [
+         (' ', '  '),
         ('Fullstack_developer', 'Fullstack_developer'),
         ('manager', 'Manager'),
         ('admin','Admin'),
@@ -32,6 +34,7 @@ class CustomUser(AbstractUser):
     ]
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='SBS_RESOURCE')
     email= models.EmailField(unique=True)
+    username = None 
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

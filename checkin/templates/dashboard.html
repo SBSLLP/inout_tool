@@ -18,7 +18,7 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #f57c00, #1976d2); /* Orange and Blue gradient */
+      background: linear-gradient(to right, #840ede, #071fa8); 
       color: #fff;
       margin: 0;
       padding-top: 80px;
@@ -71,8 +71,15 @@
     }
 
     .table tbody tr:hover {
-      background-color: #f5f5f5;
+      background-color:rgb(6, 3, 3);
     }
+    .dashboard-header {
+      font-family: 'Poppins','black', sans-serif;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: black; 
+    } 
 
     .table th, .table td {
       vertical-align: middle;
@@ -88,16 +95,25 @@
     
         <a class="navbar-brand d-flex align-items-center" href="/" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
         <img src="{% static 'images/sbs.jpg' %}" alt="Logo" />
-       <h2 class="mb-0">Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
+       
       </a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
+       
       </button>
+     
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        
         <ul class="navbar-nav">
+          <h2 class="mb-0 me-3 d-none d-md-block" style="color: #333; font-size: 20px;">
+            Welcome, {{ user.first_name }} {{ user.last_name }}
+          </h2>
           <li class="nav-item dropdown">
+            
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              
               <img src="https://ui-avatars.com/api/?name={{ user.first_name }}&background=0D8ABC&color=fff&rounded=true" alt="Profile" class="rounded-circle" width="40" height="40" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -113,7 +129,7 @@
 
   <!-- Main Content -->
   <div class="container">
-    <div class="dashboard-header" >🗓️ Your Daily Attendance</div>
+    <div class="dashboard-header" > Your Daily Attendance</div>
 
     <center>
         <form method="post">
@@ -167,7 +183,7 @@
   
 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebarMenu">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Streamliners</h5>
+      <h5 class="offcanvas-title">{{ user.first_name }} </h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">

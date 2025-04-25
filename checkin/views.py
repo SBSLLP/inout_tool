@@ -1,7 +1,8 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-
+from django.db import IntegrityError    
 from django.contrib.auth import logout,authenticate, login
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
@@ -56,19 +57,23 @@ def login_view(request):
         else:
             return render(request, 'login.html',{'error': 'Invalid email or password'})
     return redirect (request,'login.html')
-        
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])
-            user.save()
-            messages.success(request, 'Registration successful! You can now log in.')
-            return redirect('login')  # Make sure you have a login URL
+            try:
+                user = form.save(commit=False)
+                user.save()
+                messages.success(request, 'Registration successful! You can now log in.')
+                return redirect('login')
+            except IntegrityError:
+                messages.error(request, 'This email is already registered.')
+        else:
+            messages.error(request, 'Please correct the errors below.')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'register.html', {'form': form})           
+
+    return render(request, 'register.html', {'form': form})
 
 
 @login_required

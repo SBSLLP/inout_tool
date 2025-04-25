@@ -1,99 +1,88 @@
 body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f6f9fc;
-  }
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #840ede, #071fa8); 
+  color: #fff;
+}
 
-  .container-fluid {
-    height: 100vh;
-  }
+.left-section {
+  background: transparent;
+  flex-direction: column;
+  padding: 40px;
+  position: relative;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
 
-  .left-section {
-    position: relative;
-    background: linear-gradient(135deg, #ff6f00, #007bff);
-    color: white;
-    overflow: hidden;
-  }
+.left-section img.logo {
+  margin-bottom: 30px;
+  max-width: 150px;
+}
 
-  .left-section .logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 80px;
-  }
+.left-section .icon {
+  position: absolute;
+  width: 60px;
+  opacity: 0.8;
+}
 
-  .left-section .quote {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
-    padding: 2rem;
-    z-index: 1;
-    position: relative;
-  }
+.icon1 {
+  top: 40%;
+  left: 15%;
+}
 
-  .left-section .icon {
-    position: absolute;
-    opacity: 0.08;
-    width: 100px;
-  }
+.icon2 {
+  top: 60%;
+  right: 20%;
+}
 
-  .icon1 { top: 60px; right: 30px; }
-  .icon2 { bottom: 40px; left: 50px; width: 80px; }
-  .icon3 { bottom: 100px; right: 80px; width: 120px; }
+.icon3 {
+  top: 70%;
+  left: 25%;
+}
 
-  .right-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #e3f2fd, #ffffff);
-  }
+.left-section .logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 80px;
+}
 
-  .login-card {
-    width: 100%;
-    max-width: 420px;
-    padding: 2.5rem;
-    border-radius: 15px;
-    background-color: #ffffff;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
+.left-section .quote {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 2rem;
+  z-index: 1;
+  position: relative;
+}
 
-  .login-card:hover {
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
-  }
 
-  .form-control:focus {
-    box-shadow: none;
-    border-color: #007bff;
-  }
+.right-section {
+  background-color: #faf8f8e6; /* translucent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  height: 100vh;
+}
 
-  .input-group-text {
-    background-color: #f1f1f1;
-  }
+.login-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  color: #000;
+}
 
-  .form-links {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-  }
-
-  .form-links a {
-    text-decoration: none;
-    color: #007bff;
-  }
-
-  .form-links a:hover {
-    text-decoration: underline;
-  }
-
-  .dark-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-  }
+.login-card h4,
+.login-card h3 {
+  color: #1c67f3;
+}
